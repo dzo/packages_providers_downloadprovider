@@ -260,7 +260,7 @@ public class DownloadService extends Service {
 
         public void run() {
             Process.setThreadPriority(Process.THREAD_PRIORITY_BACKGROUND);
-			createCacheDirs();
+            createCacheDirs();
             trimDatabase();
             removeSpuriousFiles();
 
@@ -417,16 +417,13 @@ public class DownloadService extends Service {
                             PendingIntent.FLAG_ONE_SHOT));
         }
     }
-	
-	/*
-	* Checks for and creates download cache directory
-	* we need this just in case it doesn't exist on the sdcard
-	*/
-	private void createCacheDirs() {
-		File cacheDir = Environment.getDownloadCacheDirectory();
-		cacheDir.mkdirs();
-	} 
-	
+
+    // Create download cache directory
+    private void createCacheDirs() {
+        File cacheDir = Environment.getDownloadCacheDirectory();
+        cacheDir.mkdirs();
+    }
+
     /**
      * Removes files that may have been left behind in the cache directory
      */
